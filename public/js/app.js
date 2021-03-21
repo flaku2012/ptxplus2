@@ -1880,7 +1880,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+//
+//
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      categories: null
+    };
+  },
+  mounted: function mounted() {
+    var _this = this;
+
+    axios.get('/api/categories').then(function (response) {
+      _this.categories = response.data.data;
+    });
+  }
+});
 
 /***/ }),
 
@@ -37420,72 +37435,86 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("form", { attrs: { method: "POST" } }, [
+    _vm._m(0),
+    _vm._v(" "),
+    _vm._m(1),
+    _vm._v(" "),
+    _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "category" } },
+        [_vm._v("Kategoria")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("div", { staticClass: "form-group" }, [
+          _c(
+            "select",
+            {
+              staticClass: "form-control",
+              attrs: { id: "category", name: "category" }
+            },
+            _vm._l(_vm.categories, function(category) {
+              return _c("option", { domProps: { value: category.id } }, [
+                _vm._v(
+                  "\n              " + _vm._s(category.name) + "\n            "
+                )
+              ])
+            }),
+            0
+          )
+        ])
+      ])
+    ]),
+    _vm._v(" "),
+    _c(
+      "button",
+      {
+        staticClass: "btn btn-sm btn-primary pull-success",
+        attrs: { type: "submit" }
+      },
+      [_vm._v("Zapisz zmiany")]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("form", { attrs: { method: "POST" } }, [
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          { staticClass: "col-sm-2 col-form-label", attrs: { for: "surname" } },
-          [_vm._v("Nazwisko")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-10" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", id: "surname", name: "surname" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          { staticClass: "col-sm-2 col-form-label", attrs: { for: "name" } },
-          [_vm._v("Imię")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-10" }, [
-          _c("input", {
-            staticClass: "form-control",
-            attrs: { type: "text", id: "name", name: "name" }
-          })
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "form-group row" }, [
-        _c(
-          "label",
-          {
-            staticClass: "col-sm-2 col-form-label",
-            attrs: { for: "category" }
-          },
-          [_vm._v("Kategoria")]
-        ),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-10" }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("select", {
-              staticClass: "form-control",
-              attrs: { id: "category", name: "category" }
-            })
-          ])
-        ])
-      ]),
-      _vm._v(" "),
+    return _c("div", { staticClass: "form-group row" }, [
       _c(
-        "button",
-        {
-          staticClass: "btn btn-sm btn-primary pull-success",
-          attrs: { type: "submit" }
-        },
-        [_vm._v("Zapisz zmiany")]
-      )
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "surname" } },
+        [_vm._v("Nazwisko")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", id: "surname", name: "surname" }
+        })
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "form-group row" }, [
+      _c(
+        "label",
+        { staticClass: "col-sm-2 col-form-label", attrs: { for: "name" } },
+        [_vm._v("Imię")]
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-sm-10" }, [
+        _c("input", {
+          staticClass: "form-control",
+          attrs: { type: "text", id: "name", name: "name" }
+        })
+      ])
     ])
   }
 ]

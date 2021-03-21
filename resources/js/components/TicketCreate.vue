@@ -21,7 +21,9 @@
         <div class="col-sm-10">
           <div class="form-group">
             <select class="form-control" id="category" name="category">
-
+              <option v-for="category in categories" :value="category.id">
+                {{ category.name }}
+              </option>
             </select>
           </div>
     </div>
@@ -34,9 +36,16 @@
 </template>
 
 <script>
-  
-  export default {
-    
-  }
-
+    export default {
+        data() {
+            return {
+                categories: null,
+            }
+        },
+        mounted() {
+            axios.get('/api/categories').then(response => {
+                this.categories = response.data.data;
+            })
+        }
+    }
 </script>
