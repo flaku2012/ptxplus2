@@ -1,4 +1,4 @@
-@extends('index')
+@extends('home')
 
 @section('content')
 <h3 class="text-center alert alert-dark">Formularz rejestracji</h3>
