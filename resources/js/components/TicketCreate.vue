@@ -27,7 +27,7 @@
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary pull-success">Zapisz zmiany</button>
+  <button type="submit" class="btn btn-sm btn-primary pull-success">Zapisz zmiany</button>
 
   </form>
 
