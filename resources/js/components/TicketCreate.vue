@@ -36,13 +36,16 @@
 </template>
 
 <script>
-    export default {
-        data() {
+    export default 
+    {
+        data() 
+        {
             return {
                 categories: null,
             }
         },
-        mounted() {
+        mounted() 
+        {
             axios.get('/api/categories').then(response => {
                 this.categories = response.data.data;
             })
